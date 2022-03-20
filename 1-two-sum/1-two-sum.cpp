@@ -1,24 +1,16 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_set<int> hs;
-        vector<int> ans;
-        for(int i=0;i<nums.size();i++){
-            int a = nums[i];
-            int b = target-a;
-            if(hs.find(b) != hs.end()){
-                for(int j=0;j<nums.size();j++){
-                    if(nums[j] == b){
-                        ans.push_back(j);
-                        ans.push_back(i);
-                        return ans;
-                    }
+        vector <int>ret;
+        int n = nums.size();
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                if(nums[i] + nums[j] == target){
+                    ret.push_back(i);
+                    ret.push_back(j);
                 }
             }
-            else{
-                hs.insert(a);
-            }
         }
-        return ans;
+        return ret;
     }
 };
