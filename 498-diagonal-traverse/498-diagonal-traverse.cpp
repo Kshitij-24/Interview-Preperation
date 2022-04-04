@@ -1,28 +1,24 @@
 class Solution {
 public:
     vector<int> findDiagonalOrder(vector<vector<int>>& matrix) {
-        if(matrix.empty()) return {};
-        
-        const int N = matrix.size();
-        const int M = matrix[0].size();
-        
-        vector<int> res;
-        for(int s = 0; s <= N + M - 2; ++s)
-        {
-            // for all i + j = s
-            for(int x = 0; x <= s; ++x) 
-            {
-                int i = x;
-                int j = s - i;
-                if(s % 2 == 0) swap(i, j);
-
-                if(i >= N || j >= M) continue;
-                
-                res.push_back(matrix[i][j]);
+        map<int, vector<int>> record;
+        for(int i=0;i<matrix.size();i++){
+            for(int j = 0;j<matrix[i].size();j++){
+                record[i+j].push_back(matrix[i][j]);
             }
         }
-        
-        return res;
-        
+        map<int, vector<int>>:: iterator itr;
+        vector<int> answer;
+        for(itr = record.begin(); itr != record.end(); itr++){
+            if((itr->first)%2 == 0){
+                for(int i = itr->second.size()-1; i>=0; i--)
+                    answer.push_back(itr->second[i]);
+            }
+            else{
+                for(int i=0;i<itr->second.size();i++)
+                    answer.push_back(itr->second[i]);
+            }
+        }
+        return answer;
     }
 };
