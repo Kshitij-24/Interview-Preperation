@@ -14,7 +14,7 @@ void precise(float a, float b)
     //perform a/b
     float ans = a/b;
     
-    cout<<ans<<" "<<std::setprecision(3)<<std::fixed<<ans<<endl;
+    cout<<ans<<" "<<std::setprecision(4)<<ans<<endl;
     
     cout<<endl;
 }
