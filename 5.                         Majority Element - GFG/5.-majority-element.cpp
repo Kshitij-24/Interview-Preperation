@@ -17,20 +17,23 @@ class Solution{
     {
         
         // your code here
-        unordered_map<int, int> mp;
-        for(int i = 0; i < n; i++)
-        mp[arr[i]]++;
-        int k = (n/2) + 1;
-        int flag = 0;
-        for(auto i : mp){
-            if(i.second >= k){
-                int ans = i.first;
-                flag = 1;
-                return ans;
-                // break;
-            }
+        int res = 0;
+        int count = 0;
+        for(int i=0;i<n;i++){
+            if(count == 0)
+            res = arr[i];
+            if(arr[i] == res)
+            count++;
+            else
+            count--;
         }
-        if(flag == 0)
+        count = 0;
+        for(int i=0;i<n;i++){
+            if(arr[i] == res)
+            count++;
+        }
+        if(count>n/2)
+        return res;
         return -1;
         
     }
