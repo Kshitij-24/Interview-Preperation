@@ -93,8 +93,9 @@ void Deque::insertFront(int data) {
         rear = front;
         return;
     }
-    front->prev = newNode;
     newNode->next = front;
+    front->prev = newNode;
+    
     front = newNode;
 }
 
