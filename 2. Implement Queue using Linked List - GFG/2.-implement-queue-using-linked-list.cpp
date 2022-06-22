@@ -105,6 +105,8 @@ int MyQueue :: pop()
             QueueNode *temp = front;
             int x = front->data;
             front = front->next;
+            if(front == NULL)
+            rear = NULL;
             delete temp;
             return x;
         }
