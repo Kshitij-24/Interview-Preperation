@@ -61,7 +61,7 @@ int sumOfElements(Node *head)
    //Your code here
    int sum = 0;
    if(head == NULL)
-   return 0;
+   return sum;
    while(head!=NULL){
        int temp = head->data;
        sum += temp;
