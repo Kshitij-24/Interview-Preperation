@@ -1,7 +1,7 @@
 class Solution {
 public:
     int ans;
-    void solve(vector<bool> &visited, int end, int pos = 1){
+    void solve(vector<bool> &visited, int end, int pos){
         if(pos == end+1){
             ans++;
             return;
@@ -15,9 +15,10 @@ public:
         }
     }
     int countArrangement(int n) {
+        int pos = 1;
         ans = 0;
         vector<bool> visited(n);
-        solve(visited, n);
+        solve(visited, n, pos);
         return ans;
     }
 };
